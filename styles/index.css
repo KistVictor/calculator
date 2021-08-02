@@ -1,0 +1,87 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #A4AEAF;
+  background: linear-gradient(180deg, #1C1F22 0%, #4B4F50 100%);
+  height: 98vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 292.24px;
+  height: 654.73px;
+  background: linear-gradient(180deg, #4B4F50 0%, #1E2225 100%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+time {
+  font-size: 12px;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+ul li {
+  list-style-type: none;
+  font-size: 12px;
+  color: #6B6F70;
+}
+
+stong {
+  font-weight: 600;
+  font-size: 36px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-items: center;
+  gap: 2px;
+}
+
+button {
+  width: 61.82px;
+  height: 56.2px;
+  border-radius: 47px;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  color: white;
+}
+
+.equal {
+  height: 115.21px;
+  grid-row: span 2 / span 2;
+  background: linear-gradient(198.11deg, rgba(0, 0, 0, 0.2) 12.32%, rgba(0, 0, 0, 0) 88.19%), linear-gradient(0deg, #7C22C2, #7C22C2);
+}
+
+.bg-yellow {
+  background: linear-gradient(198.11deg, rgba(0, 0, 0, 0.2) 12.32%, rgba(0, 0, 0, 0) 88.19%), #FDB92B;
+}
+
+.bg-strongYellow {
+  background: linear-gradient(198.11deg, rgba(0, 0, 0, 0.2) 12.32%, rgba(0, 0, 0, 0) 88.19%), #5E4107;
+}
+
+.bg-strongPurple {
+  background: linear-gradient(198.11deg, rgba(0, 0, 0, 0.2) 12.32%, rgba(0, 0, 0, 0) 88.19%), radial-gradient(50% 50% at 50% 50%, #4C3762 0%, #4C3762 100%);
+}
+
+.bg-gray {
+  background: linear-gradient(198.11deg, rgba(0, 0, 0, 0.2) 12.32%, rgba(0, 0, 0, 0) 88.19%), #404447;
+}
+
+.bg-strongGray {
+  background: linear-gradient(198.11deg, rgba(0, 0, 0, 0.2) 12.32%, rgba(0, 0, 0, 0) 88.19%), #282B2E;
+  font-size: 18px;
+}
