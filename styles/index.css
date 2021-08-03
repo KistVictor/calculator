@@ -9,6 +9,7 @@ body {
 }
 
 section {
+  position: relative;
   width: 260px;
   height: 595px;
   background: linear-gradient(180deg, #4B4F50 0%, #1E2225 100%);
@@ -26,6 +27,10 @@ header {
   align-items: center;
 }
 
+time {
+  font-size: 12px;
+}
+
 .display {
   height: 100%;
   display: flex;
@@ -33,10 +38,17 @@ header {
   align-items: flex-end;
   justify-content: flex-end;
   margin-bottom: 20px;
+  overflow:auto
 }
 
-time {
-  font-size: 12px;
+.gradient {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 23px;
+  left: 0px;
+  right: 0px;
+  background: linear-gradient(180deg, #4A4E4F 22.5%, rgba(72, 76, 77, 0) 100%);
 }
 
 ul {
@@ -44,6 +56,8 @@ ul {
   flex-direction: column;
   align-items: flex-end;
   margin-bottom: 5px;
+  margin-top: 0px;
+  padding-left: 0px;
 }
 
 li {
@@ -55,7 +69,6 @@ li {
 strong {
   font-weight: 600;
   font-size: 36px;
-  
 }
 
 main {
@@ -74,6 +87,17 @@ button {
   font-family: 'Montserrat', sans-serif;
   font-size: 24px;
   color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 70%;
+}
+
+button:active {
+  opacity: 20%;
+  transform: scale(0.95);
 }
 
 .equal {
