@@ -1,23 +1,43 @@
 const buttons = document.querySelectorAll("button")
 const charList = document.querySelector("ul")
 
+let value = '0'
+let newNumber = true
+
 function getChar(event) {
-    const char = event.target.innerText
-    addChar(char)
+  let char = event.target.innerText
+
+  if (char == ".") {
+    verifyVirgle()
+  }
+
+  if (newNumber) {
+    value = ""+char
+    newNumber = false
+  } else {
+    value += char
+  }
+
+
+  updateDisplay()
 }
 
-function addChar(char) {
-    const newItem = document.createElement("li")
-    newItem.innerText = char
-    console.log(newItem)
-    charList.appendChild(newItem)
+/*function addChar(char) {
+  const newItem = document.createElement("li")
+  newItem.innerText = char
+  charList.appendChild(newItem)
+}*/
+
+function updateDisplay() {
+  document.querySelector("li").innerText = value
 }
 
+function verifyVirgle() {
 
-
+}
 
 
 
 buttons.forEach((button) => {
-    button.addEventListener("click", getChar)
+  button.addEventListener("click", getChar)
 })
