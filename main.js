@@ -1,43 +1,41 @@
-const buttons = document.querySelectorAll("button")
+onload = () => {
+  document.querySelector("#btn-0").onclick = () => number(0)
+  document.querySelector("#btn-1").onclick = () => number(1)
+  document.querySelector("#btn-2").onclick = () => number(2)
+  document.querySelector("#btn-3").onclick = () => number(3)
+  document.querySelector("#btn-4").onclick = () => number(4)
+  document.querySelector("#btn-5").onclick = () => number(5)
+  document.querySelector("#btn-6").onclick = () => number(6)
+  document.querySelector("#btn-7").onclick = () => number(7)
+  document.querySelector("#btn-8").onclick = () => number(8)
+  document.querySelector("#btn-9").onclick = () => number(9)
+  document.querySelector("#btn-dot").onclick = verifyDot
+}
+
 const charList = document.querySelector("ul")
 
 let value = '0'
 let newNumber = true
 
-function getChar(event) {
-  let char = event.target.innerText
-
-  if (char == ".") {
-    verifyVirgle()
-  }
+function number(number) {
 
   if (newNumber) {
-    value = ""+char
+    value = "" + number
     newNumber = false
   } else {
-    value += char
+    value += number
   }
-
 
   updateDisplay()
 }
 
-/*function addChar(char) {
-  const newItem = document.createElement("li")
-  newItem.innerText = char
-  charList.appendChild(newItem)
-}*/
+function verifyDot() {
+  if (value.indexOf(".") === -1) {
+    value += "."
+  }
+  updateDisplay()
+}
 
 function updateDisplay() {
   document.querySelector("li").innerText = value
 }
-
-function verifyVirgle() {
-
-}
-
-
-
-buttons.forEach((button) => {
-  button.addEventListener("click", getChar)
-})
