@@ -10,11 +10,15 @@ onload = () => {
   document.querySelector("#btn-8").onclick = () => number(8)
   document.querySelector("#btn-9").onclick = () => number(9)
   document.querySelector("#btn-dot").onclick = verifyDot
+  document.querySelector("#btn-ac").onclick = clearAll
+  document.querySelector("#btn-lc").onclick = clearLastNumber
+  document.querySelector("#btn-sum").onclick = sumNumbers
 }
 
 const charList = document.querySelector("ul")
 
-let value = '0'
+let value = "0"
+let temp = "0"
 let newNumber = true
 
 function number(number) {
@@ -29,6 +33,17 @@ function number(number) {
   updateDisplay()
 }
 
+function clearAll() {
+  newNumber = true
+  value = "0"
+  updateDisplay()
+}
+
+function clearLastNumber() {
+  value = value.substring(0, value.length - 1)
+  updateDisplay()
+}
+
 function verifyDot() {
   if (value.indexOf(".") === -1) {
     value += "."
@@ -37,5 +52,17 @@ function verifyDot() {
 }
 
 function updateDisplay() {
-  document.querySelector("li").innerText = value
+  console.log(value)
+  let [entire, decimal] = value.split(".")
+  let displayValue = ''
+  counter = 0
+  for (let i = entire.length - 1; i >= 0; i--) {
+    if (++counter > 3) {
+      displayValue = "," + displayValue
+      counter = 1
+    }
+    displayValue = entire[i] + displayValue
+  }
+  displayValue = displayValue + (decimal ? '.' + decimal : '')
+  document.querySelector("li").innerText = displayValue
 }
