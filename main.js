@@ -9,6 +9,13 @@ onload = () => {
   document.querySelector("#btn-7").onclick = () => number(7)
   document.querySelector("#btn-8").onclick = () => number(8)
   document.querySelector("#btn-9").onclick = () => number(9)
+
+  document.querySelector("#btn-plus").onclick = () => operation("+")
+  document.querySelector("#btn-minus").onclick = () => operation("-")
+  document.querySelector("#btn-mult").onclick = () => operation("*")
+  document.querySelector("#btn-divi").onclick = () => operation("/")
+  document.querySelector("#btn-equal").onclick = calculate
+
   document.querySelector("#btn-dot").onclick = verifyDot
   document.querySelector("#btn-ac").onclick = clearAll
   document.querySelector("#btn-lc").onclick = clearLastNumber
@@ -18,8 +25,9 @@ onload = () => {
 const charList = document.querySelector("ul")
 
 let value = "0"
-let temp = "0"
 let newNumber = true
+let lastValue = "0"
+let pendingOperation = null
 
 function number(number) {
 
@@ -36,6 +44,8 @@ function number(number) {
 function clearAll() {
   newNumber = true
   value = "0"
+  lastValue = "0"
+  pendingOperation = null
   updateDisplay()
 }
 
@@ -48,6 +58,39 @@ function verifyDot() {
   if (value.indexOf(".") === -1) {
     value += "."
   }
+  updateDisplay()
+}
+
+const currentValue = () => parseFloat(value)
+
+function operation(op) {
+  calculate()
+  lastValue = currentValue()
+  pendingOperation = op
+  newNumber = true
+}
+
+function calculate() {
+  if (pendingOperation != null) {
+    switch (pendingOperation) {
+      case "+":
+        result = lastValue + currentValue()
+        break
+      case "-":
+        result = lastValue - currentValue()
+        break
+      case "*":
+        result = lastValue * currentValue()
+        break
+      case "/":
+        result = lastValue / currentValue()
+        break
+    }
+    value = result.toString()
+  }
+  newNumber = true
+  pendingOperation = null
+  lastValue = 0
   updateDisplay()
 }
 
