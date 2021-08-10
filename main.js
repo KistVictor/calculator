@@ -22,12 +22,16 @@ onload = () => {
   document.querySelector("#btn-sum").onclick = sumNumbers
 }
 
-const charList = document.querySelector("ul")
+const numberList = document.querySelector("ul")
 
 let value = "0"
 let newNumber = true
 let lastValue = "0"
 let pendingOperation = null
+
+const currentValue = () => parseFloat(value)
+
+const displayNumber = () => document.querySelector("#mainNumber")
 
 function number(number) {
 
@@ -39,6 +43,12 @@ function number(number) {
   }
 
   updateDisplay()
+}
+
+function addNewItem(number) {
+  const newItem = document.createElement("li")
+  newItem.innerText = number
+  displayNumber().parentNode.insertBefore(newItem, displayNumber())
 }
 
 function clearAll() {
@@ -60,8 +70,6 @@ function verifyDot() {
   }
   updateDisplay()
 }
-
-const currentValue = () => parseFloat(value)
 
 function operation(op) {
   calculate()
@@ -87,6 +95,7 @@ function calculate() {
         break
     }
     value = result.toString()
+    addNewItem(value)
   }
   newNumber = true
   pendingOperation = null
@@ -95,7 +104,6 @@ function calculate() {
 }
 
 function updateDisplay() {
-  console.log(value)
   let [entire, decimal] = value.split(".")
   let displayValue = ''
   counter = 0
@@ -107,5 +115,5 @@ function updateDisplay() {
     displayValue = entire[i] + displayValue
   }
   displayValue = displayValue + (decimal ? '.' + decimal : '')
-  document.querySelector("li").innerText = displayValue
+  displayNumber().innerText = displayValue
 }
